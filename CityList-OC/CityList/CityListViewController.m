@@ -138,7 +138,6 @@
         [tableView registerClass:CityListTableCell.class forCellReuseIdentifier:CellIdentifer];
         tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         tableView.sectionIndexColor = UIColor.blackColor;//设置默认时索引值颜色
-        tableView.allowsSelection = YES;
         _tableView = tableView;
     }
     return _tableView;

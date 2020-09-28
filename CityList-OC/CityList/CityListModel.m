@@ -126,7 +126,6 @@ NSString *const kCityListModelRegionName = @"region_name";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
     [aCoder encodeObject:_parentId forKey:kCityListModelParentId];
     [aCoder encodeObject:_agencyId forKey:kCityListModelAgencyId];
     [aCoder encodeObject:_regionId forKey:kCityListModelRegionId];
