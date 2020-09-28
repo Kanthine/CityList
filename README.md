@@ -5,4 +5,4 @@
 
 ListView|PickView|
 :-: |:-: 
-![ListView.gif](https://github.com/Kanthine/CityList/blob/master/ListView.gif)|![PickView.gif](https://github.com/Kanthine/CityList/blob/master/PickView.gif)
+![ListView.gif](https://upload-images.jianshu.io/upload_images/7112462-6026b4371e6dc91f.gif?imageMogr2/auto-orient/strip)|![PickView.gif](https://upload-images.jianshu.io/upload_images/7112462-85e374e398e04b7b.gif?imageMogr2/auto-orient/strip)
