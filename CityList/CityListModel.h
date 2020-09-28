@@ -1,8 +1,8 @@
 //
 //  CityListModel.h
 //
-//  Created by 沫离 苏 on 2020/9/27
-//  Copyright (c) 2020 __MyCompanyName__. All rights reserved.
+//  Created by 沫离 苏 on 2018/6/27
+//  Copyright (c) 2018 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,8 +17,13 @@
 @property (nonatomic, strong) NSString *regionType;
 @property (nonatomic, strong) NSString *regionName;
 @property (nonatomic, strong) NSArray<CityListModel *> *childArray;
+
 ///是否折叠：默认为 YES
 @property (nonatomic, assign) BOOL isFold;
+///是否选中
+@property (nonatomic, assign) BOOL isSelected;
+
+@property (nonatomic, weak) CityListModel *parentModel;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

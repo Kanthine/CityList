@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A667FD72521771200614BAE /* CityListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A667FD62521771200614BAE /* CityListTableCell.m */; };
+		1A667FDB25217F2A00614BAE /* CityListPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A667FDA25217F2A00614BAE /* CityListPickerView.m */; };
 		1A9DB19325207CB7003E8EA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DB19225207CB7003E8EA0 /* AppDelegate.m */; };
 		1A9DB19E25207CB8003E8EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9DB19D25207CB8003E8EA0 /* Assets.xcassets */; };
 		1A9DB1A125207CB8003E8EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9DB19F25207CB8003E8EA0 /* LaunchScreen.storyboard */; };
@@ -14,10 +16,13 @@
 		1A9DB1AF25207DE6003E8EA0 /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DB1AE25207DE6003E8EA0 /* CityListModel.m */; };
 		1A9DB1B425207E18003E8EA0 /* CityModelList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A9DB1B325207E18003E8EA0 /* CityModelList.json */; };
 		1A9DB1B825207E8D003E8EA0 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DB1B725207E8D003E8EA0 /* CityListViewController.m */; };
-		1A9DB1BD25207F08003E8EA0 /* CityListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DB1BC25207F08003E8EA0 /* CityListView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A667FD52521771200614BAE /* CityListTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListTableCell.h; sourceTree = "<group>"; };
+		1A667FD62521771200614BAE /* CityListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListTableCell.m; sourceTree = "<group>"; };
+		1A667FD925217F2A00614BAE /* CityListPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListPickerView.h; sourceTree = "<group>"; };
+		1A667FDA25217F2A00614BAE /* CityListPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListPickerView.m; sourceTree = "<group>"; };
 		1A9DB18E25207CB7003E8EA0 /* CityList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9DB19125207CB7003E8EA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A9DB19225207CB7003E8EA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,8 +35,6 @@
 		1A9DB1B325207E18003E8EA0 /* CityModelList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CityModelList.json; sourceTree = "<group>"; };
 		1A9DB1B625207E8D003E8EA0 /* CityListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
 		1A9DB1B725207E8D003E8EA0 /* CityListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
-		1A9DB1BB25207F08003E8EA0 /* CityListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListView.h; sourceTree = "<group>"; };
-		1A9DB1BC25207F08003E8EA0 /* CityListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +69,10 @@
 			children = (
 				1A9DB19125207CB7003E8EA0 /* AppDelegate.h */,
 				1A9DB19225207CB7003E8EA0 /* AppDelegate.m */,
-				1A9DB1BB25207F08003E8EA0 /* CityListView.h */,
-				1A9DB1BC25207F08003E8EA0 /* CityListView.m */,
+				1A667FD925217F2A00614BAE /* CityListPickerView.h */,
+				1A667FDA25217F2A00614BAE /* CityListPickerView.m */,
+				1A667FD52521771200614BAE /* CityListTableCell.h */,
+				1A667FD62521771200614BAE /* CityListTableCell.m */,
 				1A9DB1B625207E8D003E8EA0 /* CityListViewController.h */,
 				1A9DB1B725207E8D003E8EA0 /* CityListViewController.m */,
 				1A9DB1AD25207DE6003E8EA0 /* CityListModel.h */,
@@ -154,7 +159,8 @@
 				1A9DB1B825207E8D003E8EA0 /* CityListViewController.m in Sources */,
 				1A9DB19325207CB7003E8EA0 /* AppDelegate.m in Sources */,
 				1A9DB1A425207CB8003E8EA0 /* main.m in Sources */,
-				1A9DB1BD25207F08003E8EA0 /* CityListView.m in Sources */,
+				1A667FD72521771200614BAE /* CityListTableCell.m in Sources */,
+				1A667FDB25217F2A00614BAE /* CityListPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,19 +2,20 @@
 //  CityListViewController.m
 //  CityList
 //
-//  Created by 苏沫离 on 2020/9/27.
+//  Created by 苏沫离 on 2018/6/27.
 //
 #define CellIdentifer @"CityListTableCell"
-#define HeaderIdentifer @"UITableViewHeaderFooterView"
 
 
 #import "CityListViewController.h"
 #import "CityListModel.h"
-#import "CityListView.h"
+#import "CityListTableCell.h"
+#import "CityListPickerView.h"
 
 @interface CityListViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic ,strong) CityListModel *selectedCity;
 @property (nonatomic ,strong) NSMutableArray<CityListModel *> *rawDataArray;
 @property (nonatomic ,strong) NSMutableArray<CityListModel *> *dataArray;
 @property (nonatomic ,strong) UITableView *tableView;
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"省市区列表";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"CityPicker" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.tableView];
@@ -38,6 +41,12 @@
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     self.tableView.frame = self.view.bounds;
+}
+
+- (void)rightBarButtonItemClick{
+    [CityListPickerView showWithData:self.rawDataArray Handle:^(CityListModel * _Nonnull city) {
+        NSLog(@"PickerView : %@ - %@ - %@",city.parentModel.parentModel.regionName,city.parentModel.regionName,city.regionName);
+    }];
 }
 
 #pragma mark - UITableView
@@ -58,29 +67,19 @@
         model.isFold = !model.isFold;
         [self setShowData];
     }else{
-        
         CityListTableCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//        NSIndexPath *selectedIndexPath = tableView.indexPathForSelectedRow;
-//        if (selectedIndexPath &&
-//            selectedIndexPath.row != indexPath.row) {
-//            [tableView cellForRowAtIndexPath:selectedIndexPath].selected = NO;
-//            cell.selected = YES;
-//        }else{
-//            cell.selected = NO;
-//        }
+        self.selectedCity.isSelected = NO;
+        if (self.selectedCity != model) {
+            if ([self.dataArray containsObject:self.selectedCity]) {
+                NSInteger index = [self.dataArray indexOfObject:self.selectedCity];
+                CityListTableCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+                oldCell.model = self.selectedCity;
+            }
+            self.selectedCity = model;
+            model.isSelected = YES;
+        }
+        cell.model = model;
     }
-    
-//    if (self.selectedCity) {
-//        if ([getLocalizedLanguageType() isEqualToString:LocalizedLanguageZhHant]) {
-//            self.selectedCity(model.zhHant);
-//        }else if ([getLocalizedLanguageType() isEqualToString:LocalizedLanguageZhHans]){
-//            self.selectedCity(model.zhHans);
-//        }else if ([getLocalizedLanguageType() isEqualToString:LocalizedLanguageEnglish]){
-//            self.selectedCity(model.english);
-//        }
-//        [self.searchView.searchBar resignFirstResponder];
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
 }
 
 #pragma mark - private methods
@@ -137,7 +136,6 @@
         tableView.rowHeight = 48;
         tableView.sectionFooterHeight = 0.1f;
         [tableView registerClass:CityListTableCell.class forCellReuseIdentifier:CellIdentifer];
-        [tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:HeaderIdentifer];
         tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         tableView.sectionIndexColor = UIColor.blackColor;//设置默认时索引值颜色
         tableView.allowsSelection = YES;

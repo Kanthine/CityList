@@ -1,8 +1,8 @@
 //
 //  CityListModel.m
 //
-//  Created by 沫离 苏 on 2020/9/27
-//  Copyright (c) 2020 __MyCompanyName__. All rights reserved.
+//  Created by 沫离 苏 on 2018/6/27
+//  Copyright (c) 2018 __MyCompanyName__. All rights reserved.
 //
 
 #import "CityListModel.h"
@@ -53,11 +53,15 @@ NSString *const kCityListModelRegionName = @"region_name";
     if ([receivedChildArray isKindOfClass:[NSArray class]]) {
         for (NSDictionary *item in (NSArray *)receivedChildArray) {
             if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedChildArray addObject:[CityListModel modelObjectWithDictionary:item]];
+                CityListModel *model = [CityListModel modelObjectWithDictionary:item];
+                model.parentModel = self;
+                [parsedChildArray addObject:model];
             }
        }
     } else if ([receivedChildArray isKindOfClass:[NSDictionary class]]) {
-       [parsedChildArray addObject:[CityListModel modelObjectWithDictionary:(NSDictionary *)receivedChildArray]];
+        CityListModel *model = [CityListModel modelObjectWithDictionary:(NSDictionary *)receivedChildArray];
+        model.parentModel = self;
+       [parsedChildArray addObject:model];
     }
 
     self.childArray = [NSArray arrayWithArray:parsedChildArray];
